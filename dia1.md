@@ -60,7 +60,7 @@ Luego hago un clone del repositorio original:
 `git clone url`
 
 Voy a borrar el _origin_ o el origen definido, asi me lo haya vuelto a clonar:
-`git rm origin`
+`git remote rm origin`
 
 Ahora lo que voy hacer es que voy añadir como origen mi fork del original.
 `git remote add origin mi-fork-de-url`
@@ -120,3 +120,14 @@ A continuación debes crear una rama desde ese tag y ya puedes modificar lo que 
 `git checkout -b rama-desde-tag`
 
 Luego fusionarlo, asignarle de nuevo la etiqueta y/o bien fusionarlo con la rama principal, como se quiera.
+
+## Hacer un PullRequest
+> Esto lo aprendi despues de haber hecho un Pull sin --rebase
+
+1. Primer creo un fork del repositorio principal en la organización o en mi perfil.
+2. Luego clonamos ese fork con `git clone url-repositorio-fork`
+3. Luego agrego el upstream del repo principal a nuestro repo fork para tenerlo al dia haciendo lo siguiente con --rebase
+  `git remote add upstream url-repo-principal`
+  Si queremos verlo podemos escribir `git remote -v`
+4. Para bajar los cambios y tener nuestro fork al dia hacemos
+`git pull --rebase`
