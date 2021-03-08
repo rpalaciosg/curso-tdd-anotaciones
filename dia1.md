@@ -122,7 +122,13 @@ A continuación debes crear una rama desde ese tag y ya puedes modificar lo que 
 Luego fusionarlo, asignarle de nuevo la etiqueta y/o bien fusionarlo con la rama principal, como se quiera.
 
 ## Hacer un PullRequest
-> Esto lo aprendi despues de haber hecho un Pull sin --rebase
+> Esto lo aprendí después de haber hecho un Pull sin --rebase y de que se me rechazara el PR por firmar los commits de otras personas.
+
+Cuando se trabaja en un repositorio normalmente sincronizamos nuestro código extrayéndole varias veces al dia usando `git pull` pero lo que en realidad hace es hacer un `git fetch` + `git merge`, lo que resulta en un commit adicional y ademas que terminas firmando los commits de otras personas.
+
+Es mucho mejor cuando haces `git pull --rebase`, para mantener limpio el repositorio, tus commits siempre estarán en la parte superior del árbol de commits hasta que se envíen al servidor remoto. Este comando aplicara todas los commits que aun no se hayan enviado en la parte superior de los commits del árbol remoto, lo que permitirá que los commits sean rectos en una fila sin ramas.
+
+Entonces cual es el proceso para trabajar entre mas personas sobre un repositorio remoto:
 
 1. Primer creo un fork del repositorio principal en la organización o en mi perfil.
 2. Luego clonamos ese fork con `git clone url-repositorio-fork`
@@ -131,3 +137,8 @@ Luego fusionarlo, asignarle de nuevo la etiqueta y/o bien fusionarlo con la rama
   Si queremos verlo podemos escribir `git remote -v`
 4. Para bajar los cambios y tener nuestro fork al dia hacemos
 `git pull --rebase`
+
+En caso de conflictos la resolución sera por commits, no todo a la vez, por lo que se deberá usar
+`git rebase --continue` Para pasar al siguiente lote de conflictos (en caso de existir alguno).
+
+Una parte la he obtenido de [aquí](https://coderwall.com/p/7aymfa/please-oh-please-use-git-pull-rebase)
