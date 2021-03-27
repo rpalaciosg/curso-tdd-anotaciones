@@ -82,5 +82,7 @@ Tambien hay linter commo golint
 Podemos ver aqui los linters en golang.
 https://medium.com/wesionary-team/introduction-to-linters-in-go-and-know-about-golangci-lint-6486fb2864b3
 
+Material linters en golang
 
+https://sparkbox.com/foundry/go_vet_gofmt_golint_to_code_check_in_Go
  
